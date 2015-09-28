@@ -23,37 +23,37 @@
 %
 % USAGE:
 % =======
-% [ ] = CPsimulateDALSP_v07(alpha,beta,gamma,k,na0init,Nx0init,t,a,x,options)
+% [ ] = CPsimulateDALSP(M,theta,t,a,x,options)
 %
 % INPUT:
 % =====
-% alpha ... vector of rates of cell division. The ith entry of vector alpha 
-%			provides the rate at which generation i-1 divides. (The original
-%			population is generation 0 and is assumed to have divided 0 times.)
-%			If alpha is scalar, the division rate is assumed to be constant over
-%			the generations.
-% beta ... vector of rates of cell death. The ith entry of vector beta 
-%			provides the rate at which generation i-1 undergoes cell death.
-%			If beta is scalar, the rates of cell death are assumed to be constant
-%			over the generations.
+% M ... model specification:
+%   .alpha ... vector of rates of cell division. The ith entry of vector  
+%              alpha provides the rate at which generation i-1 divides. 
+%              (The original population is generation 0 and is assumed to 
+%              have divided 0 times.) If alpha is scalar, the division rate 
+%              is assumed to be constant over the generations.
+%   .beta ...  vector of rates of cell death. The ith entry of vector beta 
+%			   provides the rate at which generation i-1 undergoes cell 
+%			   death. If beta is scalar, the rates of cell death are 
+%			   assumed to be constant over the generations.
+%   .gamma ... label dilution factor upon cell division.
+%   .k ... scalar providing the rate of label degradation.
+%   .c ... scalar providing the rate of decay of the label degradation.
 %
-% gamma ... label dilution factor upon cell division.
-% k ... scalar providing the rate of label degradation.
-% c ... scalar providing the rate of decay of the label degradation.
-%
-% t ... vector of points in time at which the distribution within the population is 
-%   evaluated.
+% t ... vector of points in time at which the distribution within the 
+%   population is evaluated.
 % a ... cell-ages at which the distribution of the subpopulations is evaluated.
-% x ... label concentrations at which the distribution of the subpopulations is 
-%   evaluated.
+% x ... label concentrations at which the distribution of the subpopulations  
+%   is evaluated.
 % options ... options of the algorithm:
-%		.S ... number of generations simulated (default = 10).
-%       .noise ... properties of measurement noise
-%           .flag = {'yes','no' (default)} ... flag indicating whether
+%	.S ... number of generations simulated (default = 10).
+%   .noise ... properties of measurement noise
+%      .flag = {'yes','no' (default)} ... flag indicating whether
 %               noise is added.
-%           .mu ... mu of log-normally distributed measurement noise.
-%           .sigma ... sigma of log-normally distributed measurement noise.
-%           .shift ... vector multiplicative shift of whole histrogram.
+%      .mu ... mu of log-normally distributed measurement noise.
+%      .sigma ... sigma of log-normally distributed measurement noise.
+%      .shift ... vector multiplicative shift of whole histrogram.
 %               (This can occur due to the addition of different amounts of
 %               CFSE in the beginning of the experiment. shift = [1,...,1]
 %               means that the added amount of label was always identical,

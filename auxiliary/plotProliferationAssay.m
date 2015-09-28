@@ -103,6 +103,14 @@ else
     lsd = '-o';
 end
 
+if isempty(D)
+    D.t = S.t;
+    D.t_plot = S.t;
+    for j = 1:length(S.t)
+        D.t_name{j} = num2str(S.t(j));
+    end
+end
+
 %% CFSE DISTRIBUTION
 if strcmp(options.two_plots,'false')
 if strcmp(options.holdoff,'true')
@@ -121,7 +129,7 @@ for j = 1:length(D.t)
     if strcmp(options.plot_simulation,'true')
         lh(end+1)=stairs(x,[S.H(j,:),0],...
                   '-','Color',0.8*options.lincol(mod(j-1,length(options.lincol))+1,:),...
-                  'linewidth',2);
+                  'linewidth',2); hold on;
         ls{end+1} = [D.t_name{j} ' - simulation'];
     end
 end
@@ -153,7 +161,7 @@ for j = 1:length(D.t)
     if strcmp(options.plot_simulation,'true')
         lh(end+1)=stairs(x,[S.h(j,:),0],...
                   '-','Color',0.8*options.lincol(mod(j-1,length(options.lincol))+1,:),...
-                  'linewidth',2);
+                  'linewidth',2); hold on;
         ls{end+1} = [D.t_name{j} ' - simulation'];
     end
 end
@@ -163,7 +171,7 @@ set(gca,'Xscale','log');
 xlim(x([1,end]));
 xlabel(options.label2.x);
 ylabel(options.label2.y);
-legend(lh,ls,'location','Best');
+%legend(lh,ls,'location','Best');
 
 %% CELL NUMBER
 subplot(1,3,3);
