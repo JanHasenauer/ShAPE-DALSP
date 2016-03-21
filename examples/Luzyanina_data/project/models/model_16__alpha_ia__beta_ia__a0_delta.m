@@ -164,7 +164,6 @@ M.alpha{5} = (10^log10_k_alpha_4) * (a.^(10^log10_n_alpha))./((10^log10_K_alpha)
 M.alpha{6} = (10^log10_k_alpha_5) * (a.^(10^log10_n_alpha))./((10^log10_K_alpha)^(10^log10_n_alpha) + a.^(10^log10_n_alpha));
 M.alpha{7} = (10^log10_k_alpha_6) * (a.^(10^log10_n_alpha))./((10^log10_K_alpha)^(10^log10_n_alpha) + a.^(10^log10_n_alpha));
 M.alpha{8} = 0;
-% Division rate derivatives
 % Death rates
 M.beta{1} = (10^log10_k_beta_0) * (a.^(10^log10_n_beta))./((10^log10_K_beta)^(10^log10_n_beta) + a.^(10^log10_n_beta));
 M.beta{2} = (10^log10_k_beta_1) * (a.^(10^log10_n_beta))./((10^log10_K_beta)^(10^log10_n_beta) + a.^(10^log10_n_beta));

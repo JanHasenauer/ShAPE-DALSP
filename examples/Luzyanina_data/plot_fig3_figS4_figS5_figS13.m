@@ -4,32 +4,38 @@ clc;
 
 %% LOAD DATA
 % % main text
-% load('project/results/model_1__alpha__beta__a0_delta__grad_on');        Mo{1} = M; par{1} = parameters; II(1) = 1;
-% load('project/results/model_2__alpha_a__beta__a0_delta__grad_on');      Mo{2} = M; par{2} = parameters; II(2) = 2;
-% load('project/results/model_16__alpha_ia__beta_ia__a0_delta__grad_on'); Mo{3} = M; par{3} = parameters; II(3) = 16;
+% load('project/results/model_1__alpha__beta__a0_delta__grad_on');        Mo{1} = M; par{1} = parameters; II{1} = '1';
+% load('project/results/model_2__alpha_a__beta__a0_delta__grad_on');      Mo{2} = M; par{2} = parameters; II{2} = '2';
+% load('project/results/model_16__alpha_ia__beta_ia__a0_delta__grad_on'); Mo{3} = M; par{3} = parameters; II{3} = '16';
 % filename = 'fig3';
 
 % % supplement
-% load('project/results/model_1__alpha__beta__a0_delta__grad_on');      Mo{1} = M; par{1} = parameters; II(1) = 1;
-% load('project/results/model_2__alpha_a__beta__a0_delta__grad_on');    Mo{2} = M; par{2} = parameters; II(2) = 2;
-% load('project/results/model_3__alpha_i__beta__a0_delta__grad_on');    Mo{3} = M; par{3} = parameters; II(3) = 3;
-% load('project/results/model_4__alpha_ia__beta__a0_delta__grad_on');   Mo{4} = M; par{4} = parameters; II(4) = 4;
-% load('project/results/model_5__alpha__beta_a__a0_delta__grad_on');    Mo{5} = M; par{5} = parameters; II(5) = 5;
-% load('project/results/model_6__alpha_a__beta_a__a0_delta__grad_on');  Mo{6} = M; par{6} = parameters; II(6) = 6;
-% load('project/results/model_7__alpha_i__beta_a__a0_delta__grad_on');  Mo{7} = M; par{7} = parameters; II(7) = 7;
-% load('project/results/model_8__alpha_ia__beta_a__a0_delta__grad_on'); Mo{8} = M; par{8} = parameters; II(8) = 8;
+% load('project/results/model_1__alpha__beta__a0_delta__grad_on');      Mo{1} = M; par{1} = parameters; II{1} = '1';
+% load('project/results/model_2__alpha_a__beta__a0_delta__grad_on');    Mo{2} = M; par{2} = parameters; II{2} = '2';
+% load('project/results/model_3__alpha_i__beta__a0_delta__grad_on');    Mo{3} = M; par{3} = parameters; II{3} = '3';
+% load('project/results/model_4__alpha_ia__beta__a0_delta__grad_on');   Mo{4} = M; par{4} = parameters; II{4} = '4';
+% load('project/results/model_5__alpha__beta_a__a0_delta__grad_on');    Mo{5} = M; par{5} = parameters; II{5} = '5';
+% load('project/results/model_6__alpha_a__beta_a__a0_delta__grad_on');  Mo{6} = M; par{6} = parameters; II{6} = '6';
+% load('project/results/model_7__alpha_i__beta_a__a0_delta__grad_on');  Mo{7} = M; par{7} = parameters; II{7} = '7';
+% load('project/results/model_8__alpha_ia__beta_a__a0_delta__grad_on'); Mo{8} = M; par{8} = parameters; II{8} = '8';
 % filename = 'figS4';
 
+% % supplement
+% load('project/results/model_9__alpha__beta_i__a0_delta__grad_on');      Mo{1} = M; par{1} = parameters; II{1} = '9';
+% load('project/results/model_10__alpha_a__beta_i__a0_delta__grad_on');   Mo{2} = M; par{2} = parameters; II{2} = '10';
+% load('project/results/model_11__alpha_i__beta_i__a0_delta__grad_on');   Mo{3} = M; par{3} = parameters; II{3} = '11';
+% load('project/results/model_12__alpha_ia__beta_i__a0_delta__grad_on');  Mo{4} = M; par{4} = parameters; II{4} = '12';
+% load('project/results/model_13__alpha__beta_ia__a0_delta__grad_on');    Mo{5} = M; par{5} = parameters; II{5} = '13';
+% load('project/results/model_14__alpha_a__beta_ia__a0_delta__grad_on');  Mo{6} = M; par{6} = parameters; II{6} = '14';
+% load('project/results/model_15__alpha_i__beta_ia__a0_delta__grad_on');  Mo{7} = M; par{7} = parameters; II{7} = '15';
+% load('project/results/model_16__alpha_ia__beta_ia__a0_delta__grad_on'); Mo{8} = M; par{8} = parameters; II{8} = '16';
+% filename = 'figS5';
+
 % supplement
-load('project/results/model_9__alpha__beta_i__a0_delta__grad_on');      Mo{1} = M; par{1} = parameters; II(1) = 9;
-load('project/results/model_10__alpha_a__beta_i__a0_delta__grad_on');   Mo{2} = M; par{2} = parameters; II(2) = 10;
-load('project/results/model_11__alpha_i__beta_i__a0_delta__grad_on');   Mo{3} = M; par{3} = parameters; II(3) = 11;
-load('project/results/model_12__alpha_ia__beta_i__a0_delta__grad_on');  Mo{4} = M; par{4} = parameters; II(4) = 12;
-load('project/results/model_13__alpha__beta_ia__a0_delta__grad_on');    Mo{5} = M; par{5} = parameters; II(5) = 13;
-load('project/results/model_14__alpha_a__beta_ia__a0_delta__grad_on');  Mo{6} = M; par{6} = parameters; II(6) = 14;
-load('project/results/model_15__alpha_i__beta_ia__a0_delta__grad_on');  Mo{7} = M; par{7} = parameters; II(7) = 15;
-load('project/results/model_16__alpha_ia__beta_ia__a0_delta__grad_on'); Mo{8} = M; par{8} = parameters; II(8) = 16;
-filename = 'figS5';
+load('project/results/model_2__alpha_a__beta__a0_delta__grad_on');      Mo{1} = M; par{1} = parameters; II{1} = '2';
+load('project/results/model_2_4__alpha_01a__beta__a0_delta__grad_on');  Mo{2} = M; par{2} = parameters; II{2} = '2/4';
+load('project/results/model_4__alpha_ia__beta__a0_delta__grad_on');     Mo{3} = M; par{3} = parameters; II{3} = '4';
+filename = 'figS13';
 
 %%
 for i = 1:length(II)
@@ -142,28 +148,28 @@ for j = 1:length(D.t)
                 text(f*0.0020,145,'{\bf $(\mathcal{D})$}','Interpreter','latex','fontsize',16);
             case 1
                 text(f*0.0006,146,'{\bf B}','fontsize',16);
-                text(f*0.0020,145,['{\bf $(\mathcal{M}_{' num2str(II(i),'%d') '})$}'],'Interpreter','latex','fontsize',16);
+                text(f*0.0020,145,['{\bf $(\mathcal{M}_{' II{i} '})$}'],'Interpreter','latex','fontsize',16);
             case 2
                 text(f*0.0006,146,'{\bf C}','fontsize',16);
-                text(f*0.0020,145,['{\bf $(\mathcal{M}_{' num2str(II(i),'%d') '})$}'],'Interpreter','latex','fontsize',16);
+                text(f*0.0020,145,['{\bf $(\mathcal{M}_{' II{i} '})$}'],'Interpreter','latex','fontsize',16);
             case 3
                 text(f*0.0006,146,'{\bf D}','fontsize',16);
-                text(f*0.0020,145,['{\bf $(\mathcal{M}_{' num2str(II(i),'%d') '})$}'],'Interpreter','latex','fontsize',16);
+                text(f*0.0020,145,['{\bf $(\mathcal{M}_{' II{i} '})$}'],'Interpreter','latex','fontsize',16);
             case 4
                 text(f*0.0006,146,'{\bf E}','fontsize',16);
-                text(f*0.0020,145,['{\bf $(\mathcal{M}_{' num2str(II(i),'%d') '})$}'],'Interpreter','latex','fontsize',16);
+                text(f*0.0020,145,['{\bf $(\mathcal{M}_{' II{i} '})$}'],'Interpreter','latex','fontsize',16);
             case 5
                 text(f*0.0006,146,'{\bf F}','fontsize',16);
-                text(f*0.0020,145,['{\bf $(\mathcal{M}_{' num2str(II(i),'%d') '})$}'],'Interpreter','latex','fontsize',16);
+                text(f*0.0020,145,['{\bf $(\mathcal{M}_{' II{i} '})$}'],'Interpreter','latex','fontsize',16);
             case 6
                 text(f*0.0006,146,'{\bf G}','fontsize',16);
-                text(f*0.0020,145,['{\bf $(\mathcal{M}_{' num2str(II(i),'%d') '})$}'],'Interpreter','latex','fontsize',16);
+                text(f*0.0020,145,['{\bf $(\mathcal{M}_{' II{i} '})$}'],'Interpreter','latex','fontsize',16);
             case 7
                 text(f*0.0006,146,'{\bf H}','fontsize',16);
-                text(f*0.0020,145,['{\bf $(\mathcal{M}_{' num2str(II(i),'%d') '})$}'],'Interpreter','latex','fontsize',16);
+                text(f*0.0020,145,['{\bf $(\mathcal{M}_{' num2str(II{i},'%d') '})$}'],'Interpreter','latex','fontsize',16);
             case 8
                 text(f*0.0006,146,'{\bf I}','fontsize',16);
-                text(f*0.0020,145,['{\bf $(\mathcal{M}_{' num2str(II(i),'%d') '})$}'],'Interpreter','latex','fontsize',16);
+                text(f*0.0020,145,['{\bf $(\mathcal{M}_{' num2str(II{i},'%d') '})$}'],'Interpreter','latex','fontsize',16);
         end
         if i == length(S)
             legend(ll,{'data','model','background'},'location','NorthWest');

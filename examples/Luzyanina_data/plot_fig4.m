@@ -82,12 +82,16 @@ end
 text(-1.58,11.3,...
     ['$\mathrm{P}_{\mathrm{corr}}$ = ' num2str(corr(n_theta_vec,logL_vec))],'Interpreter','latex','fontsize',12);
 %
-legend('\alpha \neq fnc({\ita})','\alpha = fnc({\ita})','location','NorthWest');
+legend({'$\alpha$ is independent of $a$ ($\alpha \neq$ fnc($a$))\\[2ex]',...
+        '$\alpha$ is depend on $a$ ($\alpha =$ fnc($a$))'},...
+        'position',[0.2295 0.8 0.3172 0.1],'Interpreter','latex');
+%legend('\alpha \neq fnc({\ita})','\alpha = fnc({\ita})','location','NorthWest');
 %xlabel('BIC [$10^4$]','Interpreter','latex','fontsize',12);
 %ylabel('number of model parameters, n_\theta','Interpreter','latex','fontsize',12);
 
 set(gcf, 'PaperUnits','centimeters', 'PaperPosition',[0 0 14 13])
-print('-depsc2','-r1200',['./figures/fig4a']);
+print('-depsc2','-r2000',['./figures/fig4a']);
+print('-dpdf','-r2000',['./figures/fig4a']);
 
 
 %%

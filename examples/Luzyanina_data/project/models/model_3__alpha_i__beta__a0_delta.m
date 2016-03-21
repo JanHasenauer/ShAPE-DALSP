@@ -110,7 +110,6 @@ M.alpha{5} = 10^log10_k_alpha_4;
 M.alpha{6} = 10^log10_k_alpha_5;
 M.alpha{7} = 10^log10_k_alpha_6;
 M.alpha{8} = 0;
-% Division rate derivatives
 % Death rates
 M.beta{1} = 10^log10_k_beta;
 M.beta{2} = 10^log10_k_beta;

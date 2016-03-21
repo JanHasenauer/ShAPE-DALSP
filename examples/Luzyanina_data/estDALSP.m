@@ -17,8 +17,9 @@ D.t_name = {'1st day','2nd day','3rd day','4th day','5th day'};
 D.t_plot = [1,2,3,4,5];
 
 %% DEFINITION OF MODEL
-model_1__alpha__beta__a0_delta;
+% model_1__alpha__beta__a0_delta;
 % model_2__alpha_a__beta__a0_delta;
+model_2_4__alpha_01a__beta__a0_delta;
 % model_3__alpha_i__beta__a0_delta;
 % model_4__alpha_ia__beta__a0_delta;
 % model_5__alpha__beta_a__a0_delta
@@ -46,17 +47,17 @@ options_logL.simulation.noise.flag = 'yes';
 options_logL.costfuntype = 'logL';
 
 % Optimization
-options.n_starts = 2;
-% options.comp_type = 'sequential'; options.mode = 'visual';
+options.n_starts = 10;
+options.comp_type = 'sequential'; options.mode = 'visual';
 % options.comp_type = 'sequential'; options.mode = 'text';
-options.comp_type = 'parallel'; options.mode = 'text'; n_workers = 1;
+% options.comp_type = 'parallel'; options.mode = 'text'; n_workers = 1;
 options.fmincon = optimset('algorithm','interior-point',...
-                              'display','iter-detailed',...
-                              'GradObj','on',...
-                              'MaxIter',1000,...
-                              'TolFun',1e-8,...
-                              'TolX',1e-8,...
-                              'MaxFunEvals',10000*parameters.number);
+                           'display','iter-detailed',...
+                           'GradObj','on',...
+                           'MaxIter',1000,...
+                           'TolFun',1e-9,...
+                           'TolX',1e-9,...
+                           'MaxFunEvals',1000*parameters.number);
 
 % Prepare visualization
 if strcmp(options.mode,'visual')
@@ -69,8 +70,10 @@ if strcmp(options.mode,'visual')
 end
 
 % Open Matlabpool
-if strcmp(options.comp_type,'parallel') && (n_workers >= 2)
-    matlabpool(n_workers);
+if strcmp(options.comp_type,'parallel') && exist('n_workers')
+    if n_workers >= 2
+        matlabpool(n_workers);
+    end
 end
 
 %% OPTIMIZATION
@@ -79,11 +82,10 @@ end
 
 %% PLOT BEST FIT
 % Simulation
-tic
 [Sim] = CPsimulateDALSP(M,parameters.MS.par(:,1),D.t,a_sim,...
                         [D(1).bins(1,1); D(1).bins(:,2)]',...
                         options_logL.simulation);
-toc
+                    
 % Plot
 if strcmp(options.mode,'visual')
     plotProliferationAssay(Sim,D,options_logL.fh);
@@ -103,13 +105,14 @@ if strcmp(options.mode,'visual')
     saveas(options.fh  ,[pathname '_MS'] ,'fig');
 end
 
-
 %% VISUALIZE MEASUREMENT UNCERTAINTIES
 if strcmp(options.mode,'visual')
 plotProliferationAssay_w_MU(Sim,D,options_logL.fh);
 end
 
 % Close Matlabpool
-if strcmp(options.comp_type,'parallel') && (n_workers >= 2)
-    matlabpool('close');
+if strcmp(options.comp_type,'parallel') && exist('n_workers')
+    if n_workers >= 2
+        matlabpool('close');
+    end
 end
